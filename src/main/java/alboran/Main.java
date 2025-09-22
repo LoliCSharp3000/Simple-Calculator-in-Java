@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static int[] TellVariables(Scanner sc){
-        int[] valor = new int[2];
+    public static double[] TellVariables(Scanner sc){
+        double[] valor = new double[2];
         System.out.println("Dime el 1 valor:");
-        valor[0] = sc.nextInt();  
+        valor[0] = sc.nextDouble();  
         System.out.println("Dime el 2 valor:");
-        valor[1] = sc.nextInt();
+        valor[1] = sc.nextDouble();
         return valor;      
     }
 
@@ -19,8 +19,9 @@ public class Main {
         
 
         Scanner sc = new Scanner(System.in);
-        int Election = 0, Result;
-        int[] valor;
+        int Election = 0;
+        double Result;
+        double[] valor;
         System.out.println("Que quieres hacer? 1.Sumar   2.Restar  3.multiplicar  4.dividir   5.Salir");
         
         while(Election != 5){
