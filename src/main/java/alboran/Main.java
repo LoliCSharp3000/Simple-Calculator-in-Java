@@ -4,45 +4,47 @@ import java.util.Scanner;
 
 
 public class Main {
+
+    public static int[] TellVariables(Scanner sc){
+        int[] valor = new int[2];
+        System.out.println("Dime el 1 valor:");
+        valor[0] = sc.nextInt();  
+        System.out.println("Dime el 2 valor:");
+        valor[1] = sc.nextInt();
+        return valor;      
+    }
+
     public static void main(String[] args) {
+
+        
+
         Scanner sc = new Scanner(System.in);
-        int Election = 0, Value1, Value2, Result;
+        int Election = 0, Result;
+        int[] valor;
         System.out.println("Que quieres hacer? 1.Sumar   2.Restar  3.multiplicar  4.dividir   5.Salir");
         
         while(Election != 5){
             Election = sc.nextInt();
             switch (Election) {
             case 1:
-                System.out.println("Dime el primer valor");
-                Value1 = sc.nextInt();
-                System.out.println("Dime el segundo valor");
-                Value2= sc.nextInt();
-                Result = Value1 + Value2;
+                valor = TellVariables(sc);
+                Result = valor[0] + valor[1];
                 System.out.println("Vuestro resultado es " + Result);
                 break;
             case 2:
-                System.out.println("Dime el primer valor");
-                Value1 = sc.nextInt();
-                System.out.println("Dime el segundo valor");
-                Value2= sc.nextInt();
-                Result = Value1 - Value2;
+                valor = TellVariables(sc);
+                Result = valor[0] - valor[1];
                 System.out.println("Vuestro resultado es " + Result);
                 break;
             case 3:
-                System.out.println("Dime el primer valor");
-                Value1 = sc.nextInt();
-                System.out.println("Dime el segundo valor");
-                Value2= sc.nextInt();
-                Result = Value1 * Value2;
+                valor = TellVariables(sc);
+                Result = valor[0] * valor[1];
                 System.out.println("Vuestro resultado es " + Result);
                 break;
             case 4:
-                System.out.println("Dime el primer valor");
-                Value1 = sc.nextInt();
-                System.out.println("Dime el segundo valor");
-                Value2= sc.nextInt();
-                if(Value2 != 0){
-                    Result = Value1 / Value2;
+                valor = TellVariables(sc);
+                if(valor[1] != 0){
+                    Result = valor[0] / valor[1];
                     System.out.println("Vuestro resultado es " + Result);
                 }else{
                     System.out.println("No podeis dividir entre 0");
