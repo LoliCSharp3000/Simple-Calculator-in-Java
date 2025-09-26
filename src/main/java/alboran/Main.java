@@ -14,42 +14,53 @@ public class Main {
         return valor;      
     }
 
-    public static void main(String[] args) {
+    public static double sumar(double a, double  b){
+        return a + b;
+    }
 
-        
+    public static double restar(double a, double  b){
+        return a - b;
+    }
 
-        Scanner sc = new Scanner(System.in);
-        int Election = 0;
+    public static double multiplicar(double a, double b){
+        return a * b;
+    }
+
+    public static double dividir(double a, double b){
+        if(b !=0){
+            return a / b;
+        } 
+        else{
+            System.out.println("No podeis dividir entre 0");
+            return 0;
+        }
+    }
+
+    public static void operacion(int Election, Scanner sc){
         double Result;
         double[] valor;
-        System.out.println("Que quieres hacer? 1.Sumar   2.Restar  3.multiplicar  4.dividir   5.Salir");
         
-        while(Election != 5){
-            Election = sc.nextInt();
-            switch (Election) {
+        switch (Election) {
             case 1:
                 valor = TellVariables(sc);
-                Result = valor[0] + valor[1];
+                Result = sumar(valor[0], valor[1]);
                 System.out.println("Vuestro resultado es " + Result);
                 break;
             case 2:
                 valor = TellVariables(sc);
-                Result = valor[0] - valor[1];
+                Result = restar(valor[0], valor[1]);
                 System.out.println("Vuestro resultado es " + Result);
                 break;
             case 3:
                 valor = TellVariables(sc);
-                Result = valor[0] * valor[1];
+                Result = multiplicar(valor[0], valor[1]);
                 System.out.println("Vuestro resultado es " + Result);
                 break;
             case 4:
                 valor = TellVariables(sc);
-                if(valor[1] != 0){
-                    Result = valor[0] / valor[1];
-                    System.out.println("Vuestro resultado es " + Result);
-                }else{
-                    System.out.println("No podeis dividir entre 0");
-                }
+                
+                Result = dividir(valor[0], valor[1]);
+                System.out.println("Vuestro resultado es " + Result);
                 
                 break;
             case 5:
@@ -59,6 +70,23 @@ public class Main {
                 System.out.println("No se a elegido correctamente");
                 break;
             }
+    }
+
+
+
+    public static void main(String[] args) {
+
+        
+
+        Scanner sc = new Scanner(System.in);
+        int Election = 0;
+        
+        
+        
+        while(Election != 5){
+            System.out.println("Que quieres hacer? 1.Sumar   2.Restar  3.multiplicar  4.dividir   5.Salir");
+            Election = sc.nextInt();
+            operacion(Election, sc);
         }
         sc.close();
     }
