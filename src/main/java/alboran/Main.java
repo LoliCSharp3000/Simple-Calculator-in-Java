@@ -7,10 +7,17 @@ public class Main {
 
     public static double[] TellVariables(Scanner sc){
         double[] valor = new double[2];
-        System.out.println("Dime el 1 valor:");
-        valor[0] = sc.nextDouble();  
-        System.out.println("Dime el 2 valor:");
-        valor[1] = sc.nextDouble();
+        try {
+            System.out.println("Dime el 1 valor:");
+            valor[0] = sc.nextDouble();  
+            System.out.println("Dime el 2 valor:");
+            valor[1] = sc.nextDouble();
+        } catch (Exception e) {
+            System.out.println("Pon numero");
+            sc.nextLine();
+            return TellVariables(sc);
+        }
+        
         return valor;      
     }
 
@@ -85,8 +92,15 @@ public class Main {
         
         while(Election != 5){
             System.out.println("Que quieres hacer? 1.Sumar   2.Restar  3.multiplicar  4.dividir   5.Salir");
-            Election = sc.nextInt();
-            operacion(Election, sc);
+            try{
+                Election = sc.nextInt();
+                operacion(Election, sc);
+            }
+            catch(Exception e){
+                System.out.println("Error: Debes introducir un número válido.");
+                sc.nextLine();
+            }
+            
         }
         sc.close();
     }
